@@ -1,6 +1,6 @@
 #include "Pin.h"
 
-int const Pin::getPin(){
+int const Pin::GetPin(void){
 	return numpin_;
 	}
 	
