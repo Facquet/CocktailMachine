@@ -1,4 +1,5 @@
-#include <Pin.h>
+//#include "Pin.h"
+#include "Cocktail.h"
 
 //	GPIO
 class Gpio: public Pin{
@@ -11,7 +12,7 @@ public:
 //Gpio();
 //~Gpio();
 
-}
+};
 
 //----------------------------------
 //	GPIO SENSOR
@@ -23,7 +24,7 @@ public:
 Sensorgpio(int NumPin);
 virtual bool read(void)=0;
 
-}
+};
 //	GPIO ACTIONNER
 class Actiogpio: public Gpio{
 protected:
@@ -32,7 +33,7 @@ public:
 
 Actiogpio(int NumPin);
 virtual void write(bool state)=0;
-}
+};
 
 
 //-------------------------------------
@@ -41,7 +42,7 @@ class Button: public Sensorgpio{
 protected:
 public:
 virtual bool read(void); 
-}
+};
 
 class Led: public Actiogpio{
 protected:
@@ -52,26 +53,26 @@ Led (int NumPin,char couleur);
 void Turn_On_Led(void);
 void Turn_Off_Led(void);
 
-}
+};
 
 
 class Pump: public Actiogpio{
 protected:
-liquid associateLiquid_;
+Liquid associateLiquid_;
 public:
 virtual void write(bool state);
 void Turn_On_Pump(int time);
-void ChangeLiquid(liquid NewLiquid);
+void ChangeLiquid(Liquid NewLiquid);
 //void Turn_Off_Pump(void);
 
-}
-
+};
+/*
 template <class Callback>
 std::thread callAfterXSec(int sec, const Callback& cb) {
    return std::thread([sec, cb] () {
       std::this_thread::sleep_for(std::chrono::seconds(sec));
       cb();
    });
-}
+};*/
  
 

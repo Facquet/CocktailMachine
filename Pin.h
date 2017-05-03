@@ -1,7 +1,7 @@
-#include <cstring>
+#include <string>
 #include <iostream>
-#include "Cocktail.h"
-//lala
+
+
 class Pin{ 
 protected:
 int	numpin_;
@@ -9,5 +9,5 @@ public:
 
 int const GetPin(void);
 void ChangePin(int NewPin);
-}
+};
 

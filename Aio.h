@@ -1,4 +1,4 @@
-#include <Pin.h>
+//#include "Pin.h"
 
 //	AIO
 class Aio: public Pin{
@@ -7,24 +7,24 @@ mraa_aio_context maio_;
 public:
 //Aio();
 //~Aio();
-}
+};
 
 //--------------------------
 //	AIO SENSOR
 class Sensoraio: public Aio{
 protected:
 public:
-Sensoraio(NumPin);
+Sensoraio(int NumPin);
 virtual bool read(void)=0;
-}
+};
 
 //	AIO ACTIONNER
 class Actioaio: public Aio{
 protected:
 public:
-Actioaio(NumPin);
+Actioaio(int NumPin);
 virtual bool write(void)=0;
-}
+};
 
 //--------------------------------
 class thermo: public Sensoraio{
@@ -34,4 +34,4 @@ float temp_;
 public:
 virtual bool read(void);
 float const getTemp(void);
-}
+};
